@@ -1,12 +1,5 @@
 class Dog
-    attr_reader :name
-
     @@all = []
-
-    def initialize(name)
-        @name = name
-        save
-    end
 
     def self.all
         @@all
@@ -16,11 +9,18 @@ class Dog
         self.all.each { |dog| puts dog.name }
     end
 
-    def save
-        self.class.all << self
-    end
-
     def self.clear_all
         self.all.clear
+    end
+
+    attr_reader :name
+
+    def initialize(name)
+        @name = name
+        save
+    end
+
+    def save
+        self.class.all << self
     end
 end
